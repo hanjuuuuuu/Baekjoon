@@ -15,6 +15,6 @@ else{
         console.log(a+d-24, e)
     }
     else{
-        console.log(a+d, (b+c)%60)
+        console.log(a+d, e)
     }
 }

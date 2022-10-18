@@ -5,7 +5,6 @@ var input = fs.readFileSync('./1차원 배열/8958/input.txt').toString().trim()
 
 var num = input[0];     //테스트 케이스 개수
 
-//if문으로 만약 o이면, 그전도 o이면 count++ 아니면
 for(let i=1; i<=num; i++){
     //새로운 줄에 가면 초기화해준다.
     let count = 0;
