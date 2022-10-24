@@ -13,10 +13,8 @@ function  arithmetic(n){
             var one = i%10;     //일의 자리 수
             var ten = Math.floor((i/10)%10);    //십의 자리 수
             var hundred = Math.floor(i/100);     //백의 자리 수
-            //console.log(hundred, ten, one);
         
             if((hundred-ten) === (ten-one)){
-                console.log(i,hundred-ten,ten-one);
                 count++;
             }
         }
