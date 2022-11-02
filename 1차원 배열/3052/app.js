@@ -7,4 +7,4 @@ const result = input.map((input) => input%42);
 
 // 중복제거
 const set = new Set(result);
-console.log(set.size);
+console.log(set.length());

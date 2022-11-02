@@ -1,16 +1,29 @@
 //주어진 단어에서 가장 많이 사용된 알파벳을 출력하는 문제
 const fs = require("fs")
-const input = fs.readFileSync('./문자열/1157/input.txt').toString();
-//const input = fs.readFileSync('/dev/stdin').toString();
+//대문자로 변경
+const input = fs.readFileSync('./문자열/1157/input.txt').toString().toUpperCase();
+//const input = fs.readFileSync('/dev/stdin').toString().toUpperCase();
 
-let word = ''
-for(let i=0; i<input.length; i++){
-    word =input.toUpperCase();
+let count= new Array(26).fill(0);   //26길이만큼 0으로 배열 초기화
+for(let i=0; i<input.length; i++){  //count에 나온 알파벳 수만큼 추가
+    count[input.charCodeAt(i)-65]++;
 }
-//A부터 z까지 반복하면서 input에 알파벳이 존재하면 input의 해당 인덱스를 alphabet에 추가한다.
-//존재하지 않으면 -1이다.
-let alphabet = '';
-for(let i=65; i<91; i++){
-    alphabet += word.indexOf(String.fromCharCode(i)) + ' ';
+
+var max = Math.max(...count);       //count배열에서 가장 큰 값
+var index = count.indexOf(max);     //count배열에서 가장 큰 값의 처음 인덱스
+
+let own = true;       //max값이 2개 이상인지 확인
+for(let j=0; j<26; j++){    
+    if(count[j] === max && j !== index){
+        own = false;
+    }
 }
-console.log(alphabet);
+
+if(own == true){
+    console.log(String.fromCharCode(index+65));
+}
+else{
+    console.log('?');
+}
+
+
