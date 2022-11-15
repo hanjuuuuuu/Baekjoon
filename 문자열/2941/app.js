@@ -1,15 +1,16 @@
 //크로아티아 알파벳의 개수를 세는 문제
 const fs = require("fs")
 const input = fs.readFileSync('./문자열/2941/input.txt').toString().trim();
-//const input = fs.readFileSync('/dev/stdin').toString().trim();
+//let input = fs.readFileSync('/dev/stdin').toString().trim();
 
-answer=[];
+let answer=input;
 let croatia = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
-for (let i of croatia){
-    answer = input.replace(i, 'o');
-    if(answer != input){
-        input = input.replace(i, 'o');
+
+const check = function(answer){
+    for (let i of croatia){
+        answer = answer.replace(i, '.');
     }
-    console.log(answer);
+    console.log(answer)
+    return answer.length;
 }
-console.log(answer.length);
+console.log(check(answer));

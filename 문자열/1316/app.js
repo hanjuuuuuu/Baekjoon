@@ -4,4 +4,4 @@ const input = fs.readFileSync('./문자열/1316/input.txt').toString().trim();
 //const input = fs.readFileSync('/dev/stdin').toString().trim();
 
 var N = input[0];
-console.log(N);
+var groupword = 0;
