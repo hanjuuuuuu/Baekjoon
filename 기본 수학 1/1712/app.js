@@ -7,9 +7,9 @@ let A = Number(input[0]);
 let B = Number(input[1]);
 let C = Number(input[2]);
 
-if(B>=C){
+if(B>=C){   //손익분기점이 존재하지 않을 경우
     console.log(-1);
 }
-else{
+else{       //손익분기점 계산
     console.log(Math.floor(A/(C-B))+1);
 }
