@@ -12,7 +12,6 @@ const check = function(answer){
             answer = answer.replace(croatia[j], '.');
             j--;
         }
-        console.log(answer)
     }
     return answer.length;
 }
