@@ -8,6 +8,5 @@ var count=1;
 while(input>sum){
     sum += 6 * count;
     count++;
-    console.log('durl')
 }
 console.log(count);
