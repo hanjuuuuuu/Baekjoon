@@ -8,14 +8,13 @@ const up = input[0]-input[1];
 let day = 0;
 let sum = 0;
 while(input[2]>sum){
-    if(sum+input[0] >= input[2]){
-        console.log('end');
-        
-    }
-    else{
-        sum+= up;
+    sum+= up;
+    day++;
+    if(Number(sum)+Number(input[0]) >= Number(input[2])){
         day++;
-        console.log(day);
+        console.log(sum, Number(sum)+Number(input[0]))
+        console.log('end');
+        break;
     }
 }
 console.log('답',day);
