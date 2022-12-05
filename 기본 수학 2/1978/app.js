@@ -9,10 +9,10 @@ let prime = 0;      //소수의 개수
 for(let i=0; i<N; i++){
     let count = 2;
 
-    while(parseInt(num[i])>=2){
-        // if(parseInt(num[i]) === 1){         //1이면 소수가 아니다.
-        //     break;
-        // }
+    while(true){                 //1이면 소수가 아니다.
+        if(parseInt(num[i]) === 1){         
+            break;
+        }
         if(count === parseInt(num[i])){
             prime++;
             break;
