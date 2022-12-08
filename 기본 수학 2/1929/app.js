@@ -19,6 +19,7 @@ for(let j=2; j*j<=N; j++){
         }
     }
 }
+
 for(let h=M; h<=N; h++){
     if(primeList[h]){
         console.log(h);
