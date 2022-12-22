@@ -5,9 +5,8 @@ const input = fs.readFileSync('./기본 수학 2/9020/input.txt').toString().tri
 
 let primeList = [];
 const T = input[0];     //테스트 케이스 수
-let n = 0;
 for(let i=1; i<=T; i++){
-    n = parseInt(input[i]);
+    let n = parseInt(input[i]);
     let isPrime = [];
 
     for(let j=2; j<=n; j++){          //2부터 n까지 소수로 설정
@@ -25,16 +24,15 @@ for(let i=1; i<=T; i++){
             isPrime.push(t);    //소수만 담아두기
         }
     }
-    for(let z=isPrime.length/2; z>=0; z--){
-        if(isPrime.includes(n-isPrime[z])){
-            if(isPrime[z] <= n-isPrime[z]){
-                console.log(isPrime[z], n-isPrime[z]);
-                break;
-            }
-            else{
-                console.log(n-isPrime[z], isPrime[z]);
-                break;
-            }
+    let p = n/2;
+    let q = n/2;
+    
+    while(p>0){
+        if(isPrime.includes(p) && isPrime.includes(q)){
+            console.log(p,q);
+            break;
         }
+        p--;
+        q++;
     }
 }
