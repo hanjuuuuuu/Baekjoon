@@ -20,7 +20,7 @@ for(let i=1; i<=N; i++){     //행렬 B입력
     }
 }
 
-for(let i=0; i<N; i++){
+for(let i=1; i<=N; i++){
     for(let k=0; k<M; k++){
         console.log(A[i][k] + B[i][k]);
     }
