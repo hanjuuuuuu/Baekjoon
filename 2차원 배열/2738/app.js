@@ -10,14 +10,18 @@ const B = Array.from(new Array(column), () => new Array(row).fill(0));        //
 
 
 for(let i=1; i<=row; i++){     //행렬 A입력
-    for(let k=0; k<column; k+=2){
-        A.push(input[i][k]);
-    }
+    var num = input[i].split(' ');
+    console.log(num[0],num[1],num[2],'h')
+    // for(let k=num[0]; k<=column; k++){
+    //     A.push(input[i][k]);
+    //     console.log('a', input[i][k])
+    // }
 }
 
 for(let i=1; i<=row; i++){     //행렬 B입력
-    for(let k=0; k<column; k+=2){
+    for(let k=0; k<=(column+1); k+=2){
         B.push(input[i+row][k])
+        console.log('b',input[i+row][k])
     }
 }
 
