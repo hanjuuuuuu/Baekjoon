@@ -7,6 +7,3 @@ for(let i=0; i<input.length; i++){
     sorted.push(input[i])
 }
 console.log(sorted.sort((a,b)=>b-a).join(''));
-// for(let i=0; i<sorted.length; i++){
-//     console.log(sorted)
-// }
