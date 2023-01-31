@@ -4,9 +4,9 @@ const input = fs.readFileSync('./정렬/11650/input.txt').toString().trim().spli
 
 const N = input.shift();        //N개의 수
 
-const sorted = input.sort((a,b)=> {
+input.sort((a,b)=> {
     if (a[0] === b[0])
-        return a[1] - b[1];
+        return a.split(' ')[1] - b.split(' ')[1];
     else
         return a[0] - b[0];
 })
