@@ -1,4 +1,3 @@
-const { privateDecrypt } = require('crypto');
 const fs = require('fs')
 const input = fs.readFileSync('./정렬/2108/input.txt').toString().trim().split('\n');
 //const input = fs.readFileSync('/dev/stdin').toString().trim().split('\n');
@@ -23,11 +22,16 @@ function getMedian(array) {
     return array[mid];
 }
 
-// 최빈값 : N개의 수들 중 가장 많이 나타나는 값
+// 최빈값 : N개의 수들 중 가장 많이 나타나는 값(여러 개 있을 때에는 최빈값 중 두 번째로 작은 값)
 function getMode(array) {
-    const count = array.reduce((pv, cv)=> {
-        pv[cv] = (pv[cv] || 0)+1;
-        return pv;
+    var countedNumbers = array.reduce((allNumbers, number)=> {
+        if(number in allNumbers){
+            allNumbers[number]++;
+        }
+        else {
+            allNumbers[number] = 1;
+        }
+        return allNumbers;
     }, {});
 }
 
@@ -37,7 +41,6 @@ function getRange(array) {
     const max = array[N-1];
     
     return max-min;
-    
 }
 
 console.log(getAverage(sorted));
