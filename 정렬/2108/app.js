@@ -31,8 +31,12 @@ function getMode(array) {
         else {
             allNumbers[number] = 1;
         }
+        
         return allNumbers;
     }, {});
+    for(let i=0; i<N; i++){
+        
+    }
 }
 
 // 범위 : N개의 수들 중 최댓값과 최솟값의 차이
