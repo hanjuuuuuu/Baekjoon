@@ -11,9 +11,9 @@ console.log(sorted)
 function getAverage(array) {
     let sum = 0;
     for (let i=0; i<N; i++) {
-        sum += parseInt(array[i]);
+        sum += Number(array[i]);
     }
-    return Math.round(sum / N);
+    return Math.round(sum/N) === -0 ? Number(0) : Math.round(sum/N);
 }
 
 // 중앙값: N개의 수들을 증가하는 순서로 나열했을 경우 그 중앙에 위치하는 값 
@@ -24,19 +24,26 @@ function getMedian(array) {
 
 // 최빈값 : N개의 수들 중 가장 많이 나타나는 값(여러 개 있을 때에는 최빈값 중 두 번째로 작은 값)
 function getMode(array) {
-    var countedNumbers = array.reduce((allNumbers, number)=> {
-        if(number in allNumbers){
-            allNumbers[number]++;
+    const map = new Map();
+    for (let i = 0; i < N; i++) {
+        if(!map.has(array[i])) {
+            map.set(array[i], 1);
+        } else {
+            map.set(array[i], map.get(array[i]) + 1);
         }
-        else {
-            allNumbers[number] = 1;
-        }
-        
-        return allNumbers;
-    }, {});
-    for(let i=0; i<N; i++){
-        
     }
+    let maxValue = 0;
+    let answer = [];
+    map.forEach((element, key) => {
+        if (maxValue < element) {
+            maxValue = element;
+            answer = [];
+            answer.push(key);
+        } else if (maxValue === map.get(key)) {
+            answer.push(key);
+        }
+    });
+    return answer.length !== 1 ? answer[1] : answer[0];
 }
 
 // 범위 : N개의 수들 중 최댓값과 최솟값의 차이
