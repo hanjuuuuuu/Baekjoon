@@ -4,11 +4,7 @@ const input = fs.readFileSync('./정렬/18870/input.txt').toString().trim().spli
 
 const N = input.shift();    //N개의 좌표
 
-const array = [];
-for(let i=0; i<N; i++){     //좌표를 배열에 저장
-    array.push(input[0].split(' ')[i])
-}
-console.log(array)
+let array = input[0].split(' ').map(x=>x);  //좌표를 배열에 저장
 
 //정렬 후 중복제거하고 인덱스 확인하기
 array.sort((a,b)=> {
@@ -16,8 +12,9 @@ array.sort((a,b)=> {
 });
 
 var uniqueArray = [...new Set(array)];
-console.log(uniqueArray)
 
+let answer = '';
 for(let i=0; i<N; i++){
-    console.log(uniqueArray.indexOf(input[0].split(' ')[i]) )
+    answer += uniqueArray.indexOf(input[0].split(' ')[i]) + ' ';
 }
+console.log(answer)
