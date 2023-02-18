@@ -6,15 +6,15 @@ const N = input.shift();    //N개의 좌표
 
 let array = input[0].split(' ').map(x=>x);  //좌표를 배열에 저장
 
-//정렬 후 중복제거하고 인덱스 확인하기
-array.sort((a,b)=> {
-    return a-b;
-});
+//중복제거하고 정렬 후 인덱스 확인하기
+let set = new Set(array);
+let uniqueArray = [...set].sort((a,b) => a - b);
 
-var uniqueArray = [...new Set(array)];
+let dic = {};
+uniqueArray.forEach((item, index) => {dic[item] = index});
 
 let answer = '';
 for(let i=0; i<N; i++){
-    answer += uniqueArray.indexOf(input[0].split(' ')[i]) + ' ';
+    answer+=dic[array[i]] + ' ';
 }
 console.log(answer)
